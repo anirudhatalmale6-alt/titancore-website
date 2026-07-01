@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TitanCore Edge Technologies — HR Simplified. People Empowered.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1628;--navy-light:#111D33;--navy-mid:#162544;
+  --blue:#2563EB;--blue-hover:#1D4ED8;--blue-light:#3B82F6;
+  --teal:#0EA5E9;--teal-light:#38BDF8;
+  --cyan:#06B6D4;
+  --white:#FFFFFF;--off-white:#F8FAFC;--gray-50:#F1F5F9;
+  --gray-100:#E2E8F0;--gray-200:#CBD5E1;--gray-300:#94A3B8;
+  --gray-400:#64748B;--gray-500:#475569;--gray-600:#334155;
+  --text-primary:#0F172A;--text-secondary:#475569;--text-muted:#94A3B8;
+  --radius:12px;--radius-lg:20px;--radius-xl:28px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.06),0 1px 2px rgba(10,22,40,.04);
+  --shadow-md:0 4px 16px rgba(10,22,40,.08),0 2px 4px rgba(10,22,40,.04);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.12),0 4px 12px rgba(10,22,40,.06);
+  --shadow-xl:0 24px 64px rgba(10,22,40,.16),0 8px 20px rgba(10,22,40,.08);
+  --font-display:'Outfit',sans-serif;
+  --font-body:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;font-size:16px}
+body{font-family:var(--font-body);color:var(--text-primary);background:var(--white);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit;transition:color .2s}
+button{border:none;cursor:pointer;font-family:var(--font-body)}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ═══════════════════ NAVBAR ═══════════════════ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .35s cubic-bezier(.4,0,.2,1)}
+.nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(10,22,40,.06);padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;font-size:1.4rem;color:var(--navy);letter-spacing:-.02em}
+.nav-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--teal));border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.nav-logo-icon::before{content:'';position:absolute;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.9);border-radius:3px;transform:rotate(45deg);top:5px;left:5px}
+.nav-logo-icon::after{content:'';position:absolute;width:10px;height:10px;background:rgba(255,255,255,.3);border-radius:50%;bottom:4px;right:4px}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--gray-500);transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .dropdown{position:relative}
+.nav-links .dropdown-toggle{display:flex;align-items:center;gap:4px}
+.nav-links .dropdown-toggle::after{content:'';border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:.5;transition:transform .2s}
+.nav-links .dropdown:hover .dropdown-toggle::after{transform:rotate(180deg)}
+.nav-links .dropdown-menu{position:absolute;top:calc(100% + 12px);left:-16px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:8px;min-width:220px;opacity:0;visibility:hidden;transform:translateY(8px);transition:all .25s cubic-bezier(.4,0,.2,1)}
+.nav-links .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-links .dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;font-size:.875rem;color:var(--text-secondary)}
+.nav-links .dropdown-menu a:hover{background:var(--gray-50);color:var(--blue)}
+.nav-links .dropdown-menu .dm-icon{width:32px;height:32px;border-radius:8px;background:var(--gray-50);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.btn-login{padding:9px 20px;border-radius:8px;font-size:.875rem;font-weight:600;color:var(--gray-500);border:1.5px solid var(--gray-200);background:transparent;transition:all .2s}
+.btn-login:hover{border-color:var(--blue);color:var(--blue)}
+.btn-cta{padding:10px 22px;border-radius:8px;font-size:.875rem;font-weight:600;color:var(--white);background:var(--blue);transition:all .25s;box-shadow:0 2px 8px rgba(37,99,235,.25)}
+.btn-cta:hover{background:var(--blue-hover);box-shadow:0 4px 16px rgba(37,99,235,.35);transform:translateY(-1px)}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.mobile-toggle span{width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
+
+/* ═══════════════════ HERO ═══════════════════ */
+.hero{padding:140px 0 80px;background:var(--white);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.04) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(14,165,233,.03) 0%,transparent 70%);pointer-events:none}
+.hero .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-content{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 6px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:100px;font-size:.8rem;font-weight:500;color:var(--gray-500);margin-bottom:28px}
+.hero-badge-dot{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center}
+.hero-badge-dot::after{content:'';width:6px;height:6px;background:var(--white);border-radius:50%}
+.hero-badge span{color:var(--blue);font-weight:600}
+.hero h1{font-family:var(--font-display);font-size:3.75rem;font-weight:900;line-height:1.08;letter-spacing:-.035em;color:var(--navy);margin-bottom:24px}
+.hero h1 .accent{background:linear-gradient(135deg,var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.125rem;line-height:1.7;color:var(--text-secondary);max-width:480px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;align-items:center}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:600;color:var(--white);background:var(--blue);transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 4px 16px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-hover);box-shadow:0 8px 28px rgba(37,99,235,.4);transform:translateY(-2px)}
+.btn-primary svg{width:18px;height:18px;transition:transform .3s}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:600;color:var(--text-primary);background:transparent;border:1.5px solid var(--gray-200);transition:all .2s}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue);background:rgba(37,99,235,.03)}
+.hero-stats{display:flex;gap:32px;margin-top:48px;padding-top:32px;border-top:1px solid var(--gray-100)}
+.hero-stat-num{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--navy)}
+.hero-stat-label{font-size:.8rem;color:var(--text-muted);margin-top:2px}
+
+/* ═══════════════════ HERO DASHBOARD MOCKUP ═══════════════════ */
+.hero-visual{position:relative;z-index:2}
+.dash-mock{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);border:1px solid var(--gray-100);overflow:hidden;animation:float 6s ease-in-out infinite;position:relative}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.dash-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--gray-100);background:var(--off-white)}
+.dash-header-left{display:flex;align-items:center;gap:10px}
+.dash-logo-mini{width:28px;height:28px;background:linear-gradient(135deg,var(--blue),var(--teal));border-radius:7px;display:flex;align-items:center;justify-content:center}
+.dash-logo-mini::before{content:'';width:10px;height:10px;border:2px solid rgba(255,255,255,.8);border-radius:2px;transform:rotate(45deg)}
+.dash-title{font-size:.8rem;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.dash-title span{color:var(--text-muted);font-weight:400;font-size:.7rem;margin-left:6px}
+.dash-header-right{display:flex;align-items:center;gap:8px;font-size:.7rem;color:var(--text-muted)}
+.dash-header-right .dash-time{background:var(--white);padding:4px 10px;border-radius:6px;border:1px solid var(--gray-100);font-size:.65rem}
+.dash-body{padding:16px 20px}
+.dash-payroll-bar{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--blue),#1e40af);border-radius:10px;padding:12px 16px;margin-bottom:16px;color:var(--white)}
+.dash-payroll-bar .dp-left{display:flex;align-items:center;gap:10px}
+.dp-icon{width:32px;height:32px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.dp-text .dp-label{font-size:.75rem;font-weight:700}
+.dp-text .dp-count{font-size:.6rem;opacity:.7}
+.dp-btn{background:var(--white);color:var(--blue);padding:6px 14px;border-radius:6px;font-size:.65rem;font-weight:600;display:flex;align-items:center;gap:4px}
+.dash-steps{display:flex;justify-content:space-between;margin-bottom:18px;position:relative;padding:0 8px}
+.dash-steps::before{content:'';position:absolute;top:16px;left:28px;right:28px;height:2px;background:var(--gray-100)}
+.dash-step{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;z-index:1}
+.dash-step-circle{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.7rem;border:1.5px solid var(--gray-200);background:var(--white);color:var(--text-muted)}
+.dash-step.active .dash-step-circle{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.dash-step.done .dash-step-circle{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.dash-step-label{font-size:.55rem;color:var(--text-muted);text-align:center;max-width:60px;line-height:1.3}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dash-card{background:var(--off-white);border-radius:10px;padding:14px;border:1px solid var(--gray-100)}
+.dash-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.dash-card-title{font-size:.7rem;font-weight:600;color:var(--text-secondary)}
+.dash-live{font-size:.55rem;color:#10B981;font-weight:600;display:flex;align-items:center;gap:4px}
+.dash-live::before{content:'';width:5px;height:5px;background:#10B981;border-radius:50%;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.dash-emp{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray-100)}
+.dash-emp:last-child{border-bottom:none}
+.dash-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;color:var(--white)}
+.dash-emp-info{flex:1}
+.dash-emp-name{font-size:.65rem;font-weight:600;color:var(--text-primary)}
+.dash-emp-role{font-size:.55rem;color:var(--text-muted)}
+.dash-emp-step{font-size:.55rem;font-weight:600;color:var(--blue);background:rgba(37,99,235,.08);padding:2px 8px;border-radius:4px}
+.dash-stat-card .ds-value{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--navy)}
+.dash-stat-card .ds-change{font-size:.6rem;color:#10B981;font-weight:600;margin-top:2px}
+.dash-stat-card .ds-label{font-size:.6rem;color:var(--text-muted);margin-top:4px}
+.dash-total{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:10px;padding:14px;border:none;color:var(--white)}
+.dash-total .ds-value{color:var(--white)}
+.dash-total .ds-change{color:var(--teal-light)}
+.dash-total .ds-label{color:rgba(255,255,255,.5)}
+.dash-float-card{position:absolute;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:12px 16px;border:1px solid var(--gray-100);animation:float 5s ease-in-out infinite reverse;z-index:3}
+.dash-float-card.top{top:-20px;right:-20px}
+.dash-float-card.bottom{bottom:-16px;left:-20px}
+.dfc-label{font-size:.6rem;color:var(--text-muted);margin-bottom:4px}
+.dfc-value{font-family:var(--font-display);font-size:1rem;font-weight:800;color:var(--navy)}
+.dfc-bar{display:flex;gap:2px;margin-top:6px}
+.dfc-bar span{height:16px;border-radius:3px;min-width:4px}
+
+/* ═══════════════════ TRUSTED BY ═══════════════════ */
+.trusted{padding:64px 0;background:var(--off-white);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
+.trusted-label{text-align:center;font-size:.8rem;font-weight:500;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:36px}
+.trusted-logos{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trusted-logo{display:flex;align-items:center;gap:8px;opacity:.35;transition:opacity .3s;filter:grayscale(100%)}
+.trusted-logo:hover{opacity:.7;filter:none}
+.tl-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800}
+.tl-name{font-family:var(--font-display);font-size:.9rem;font-weight:700;letter-spacing:-.01em}
+
+/* ═══════════════════ FEATURES GRID ═══════════════════ */
+.features{padding:100px 0;background:var(--white)}
+.section-label{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.1);border-radius:100px;font-size:.75rem;font-weight:600;color:var(--blue);margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em}
+.section-title{font-family:var(--font-display);font-size:2.75rem;font-weight:800;letter-spacing:-.03em;color:var(--navy);line-height:1.15;margin-bottom:16px}
+.section-sub{font-size:1.05rem;color:var(--text-secondary);max-width:560px;line-height:1.65}
+.features-header{text-align:center;margin-bottom:60px}
+.features-header .section-sub{margin:0 auto}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.feature-card{padding:28px 24px;border-radius:var(--radius);border:1px solid var(--gray-100);background:var(--white);transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.feature-card:hover{border-color:rgba(37,99,235,.15);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.3rem;transition:transform .3s}
+.feature-card:hover .feature-icon{transform:scale(1.08)}
+.feature-card h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px;letter-spacing:-.01em}
+.feature-card p{font-size:.82rem;color:var(--text-muted);line-height:1.55}
+
+/* ═══════════════════ CORE HR SECTION ═══════════════════ */
+.core-hr{padding:100px 0;background:var(--off-white)}
+.core-hr .container{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.core-mock{position:relative}
+.core-panel{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);border:1px solid var(--gray-100);overflow:hidden;animation:float 7s ease-in-out infinite}
+.core-panel-nav{display:flex;gap:0;border-bottom:1px solid var(--gray-100)}
+.cpn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 8px;font-size:.6rem;color:var(--text-muted);border-bottom:2px solid transparent;transition:all .2s;cursor:default}
+.cpn-item.active{color:var(--blue);border-color:var(--blue);background:rgba(37,99,235,.02)}
+.cpn-icon{width:32px;height:32px;border-radius:8px;background:var(--gray-50);display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:all .2s}
+.cpn-item.active .cpn-icon{background:rgba(37,99,235,.08)}
+.core-chart{padding:20px}
+.chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.chart-title{font-size:.8rem;font-weight:700;color:var(--navy)}
+.chart-legend{display:flex;gap:12px}
+.chart-legend span{display:flex;align-items:center;gap:4px;font-size:.6rem;color:var(--text-muted)}
+.chart-legend span::before{content:'';width:8px;height:3px;border-radius:2px}
+.chart-legend .cl-hire::before{background:var(--blue)}
+.chart-legend .cl-exit::before{background:var(--teal)}
+.chart-svg{width:100%;height:120px}
+.core-profile{position:absolute;bottom:-20px;right:-16px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:16px;border:1px solid var(--gray-100);width:200px;animation:float 5s ease-in-out infinite reverse;z-index:2}
+.cp-avatar{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.85rem;margin-bottom:10px}
+.cp-name{font-size:.8rem;font-weight:700;color:var(--navy)}
+.cp-role{font-size:.65rem;color:var(--text-muted);margin-top:2px}
+.cp-status{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:100px;font-size:.6rem;font-weight:600;color:#10B981;background:rgba(16,185,129,.08);margin-top:8px}
+.cp-status::before{content:'';width:5px;height:5px;background:#10B981;border-radius:50%}
+.core-content .section-label{margin-bottom:16px}
+.core-content .section-title{margin-bottom:16px}
+.core-desc{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:32px}
+.core-features{display:flex;flex-direction:column;gap:16px;margin-bottom:36px}
+.core-feat{display:flex;align-items:flex-start;gap:12px}
+.cf-icon{width:36px;height:36px;border-radius:10px;background:rgba(37,99,235,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem}
+.cf-text h4{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:2px}
+.cf-text p{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+.btn-learn{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--blue);transition:gap .3s}
+.btn-learn:hover{gap:12px}
+.btn-learn svg{width:16px;height:16px}
+
+/* ═══════════════════ ONBOARDING SECTION ═══════════════════ */
+.onboarding{padding:100px 0;background:var(--white)}
+.onboarding .container{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.onboard-mock{position:relative}
+.onboard-panel{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);border:1px solid var(--gray-100);overflow:hidden;animation:float 6.5s ease-in-out infinite}
+.ob-header{padding:20px;border-bottom:1px solid var(--gray-100)}
+.ob-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ob-title{font-size:.85rem;font-weight:700;color:var(--navy)}
+.ob-badge{font-size:.6rem;font-weight:600;color:var(--blue);background:rgba(37,99,235,.08);padding:4px 10px;border-radius:100px}
+.ob-person{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.ob-person-avatar{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#F59E0B,#EF4444);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:.65rem}
+.ob-person-name{font-size:.75rem;font-weight:600;color:var(--navy)}
+.ob-person-role{font-size:.6rem;color:var(--text-muted)}
+.ob-progress{height:6px;background:var(--gray-100);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.ob-progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--teal));width:65%;transition:width 1.5s ease}
+.ob-progress-meta{display:flex;justify-content:space-between;font-size:.6rem;color:var(--text-muted)}
+.ob-tasks{padding:12px 20px 20px}
+.ob-task{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;margin-bottom:8px;border:1px solid var(--gray-100);transition:all .2s}
+.ob-task:hover{background:var(--gray-50)}
+.ob-task-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0}
+.ob-task-icon.completed{background:rgba(16,185,129,.1);color:#10B981}
+.ob-task-icon.assigned{background:rgba(37,99,235,.08);color:var(--blue)}
+.ob-task-icon.pending{background:rgba(245,158,11,.08);color:#F59E0B}
+.ob-task-icon.draft{background:var(--gray-50);color:var(--text-muted)}
+.ob-task-info{flex:1}
+.ob-task-name{font-size:.72rem;font-weight:600;color:var(--navy)}
+.ob-task-assignee{font-size:.6rem;color:var(--text-muted)}
+.ob-task-meta{text-align:right}
+.ob-task-status{font-size:.58rem;font-weight:600;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:2px}
+.ob-task-status.completed{background:rgba(16,185,129,.08);color:#10B981}
+.ob-task-status.assigned{background:rgba(37,99,235,.06);color:var(--blue)}
+.ob-task-status.pending{background:rgba(245,158,11,.06);color:#F59E0B}
+.ob-task-status.draft{background:var(--gray-50);color:var(--text-muted)}
+.ob-task-date{font-size:.58rem;color:var(--text-muted)}
+.ob-float{position:absolute;top:-16px;right:-16px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:14px;border:1px solid var(--gray-100);width:180px;animation:float 5s ease-in-out infinite reverse;z-index:2}
+.ob-float-title{font-size:.65rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.ob-float-item{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--gray-100)}
+.ob-float-item:last-child{border:none}
+.ob-float-item span{font-size:.6rem;color:var(--text-secondary)}
+.ob-float-item strong{font-size:.7rem;font-weight:700;color:var(--navy)}
+
+/* ═══════════════════ MOBILE SECTION ═══════════════════ */
+.mobile{padding:100px 0;background:var(--off-white);overflow:hidden}
+.mobile-header{text-align:center;margin-bottom:60px}
+.mobile-header .section-sub{margin:0 auto}
+.mobile-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center;max-width:1000px;margin:0 auto}
+.mobile-feat{display:flex;flex-direction:column;gap:8px}
+.mobile-feat.right{text-align:right;align-items:flex-end}
+.mf-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:4px}
+.mf-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--navy)}
+.mf-desc{font-size:.85rem;color:var(--text-muted);line-height:1.5;max-width:260px}
+.phone-mock{width:260px;height:480px;background:var(--navy);border-radius:36px;padding:12px;box-shadow:var(--shadow-xl),inset 0 0 0 2px rgba(255,255,255,.1);position:relative;animation:float 6s ease-in-out infinite}
+.phone-notch{width:100px;height:24px;background:var(--navy);border-radius:0 0 14px 14px;position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:3}
+.phone-screen{width:100%;height:100%;background:var(--white);border-radius:26px;overflow:hidden;position:relative}
+.ps-header{background:linear-gradient(135deg,var(--blue),var(--navy-mid));padding:40px 16px 20px;color:var(--white)}
+.ps-greeting{font-size:.6rem;opacity:.7}
+.ps-name{font-size:.9rem;font-weight:700;margin-top:2px}
+.ps-cards{display:flex;gap:8px;padding:12px 16px}
+.ps-card{flex:1;background:var(--off-white);border-radius:10px;padding:10px;border:1px solid var(--gray-100)}
+.ps-card-icon{font-size:.75rem;margin-bottom:4px}
+.ps-card-val{font-family:var(--font-display);font-size:.9rem;font-weight:800;color:var(--navy)}
+.ps-card-label{font-size:.5rem;color:var(--text-muted);margin-top:1px}
+.ps-shift{margin:12px 16px;background:var(--off-white);border-radius:10px;padding:12px;border:1px solid var(--gray-100)}
+.ps-shift-label{font-size:.55rem;color:var(--text-muted);margin-bottom:4px}
+.ps-shift-time{font-size:.75rem;font-weight:700;color:var(--navy)}
+.ps-scan{margin:12px 16px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:20px;background:linear-gradient(135deg,rgba(37,99,235,.04),rgba(14,165,233,.04));border-radius:12px;border:1.5px dashed var(--gray-200)}
+.ps-scan-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:white;font-size:1rem}
+.ps-scan-text{font-size:.6rem;font-weight:600;color:var(--text-secondary)}
+.ps-nav{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-around;padding:10px 0;background:var(--white);border-top:1px solid var(--gray-100)}
+.ps-nav span{width:20px;height:20px;border-radius:6px;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--text-muted)}
+.ps-nav span.active{background:rgba(37,99,235,.1);color:var(--blue)}
+.app-buttons{display:flex;gap:12px;margin-top:12px}
+.app-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:var(--navy);color:var(--white);font-size:.7rem;font-weight:600;transition:all .2s}
+.app-btn:hover{background:var(--navy-mid);transform:translateY(-1px)}
+.app-btn .ab-icon{font-size:1rem}
+
+/* ═══════════════════ WHY SECTION ═══════════════════ */
+.why{padding:100px 0;background:linear-gradient(160deg,var(--navy) 0%,#0D2137 50%,#102A4A 100%);color:var(--white);position:relative;overflow:hidden}
+.why::before{content:'';position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,.12) 0%,transparent 70%);pointer-events:none}
+.why::after{content:'';position:absolute;bottom:0;left:0;width:400px;height:400px;background:radial-gradient(circle,rgba(14,165,233,.08) 0%,transparent 70%);pointer-events:none}
+.why .container{position:relative;z-index:2}
+.why .section-label{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.25);color:var(--teal-light)}
+.why .section-title{color:var(--white)}
+.why .section-sub{color:rgba(255,255,255,.6)}
+.why-header{text-align:center;margin-bottom:60px}
+.why-header .section-sub{margin:0 auto}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-card{padding:32px 28px;border-radius:var(--radius-lg);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:all .35s;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.why-card:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);transform:translateY(-4px)}
+.why-card:hover::before{transform:scaleX(1)}
+.why-num{font-family:var(--font-display);font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;line-height:1}
+.why-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.why-card p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.65}
+
+/* ═══════════════════ STATS ═══════════════════ */
+.stats{padding:80px 0;background:var(--white);border-bottom:1px solid var(--gray-100)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:24px;position:relative}
+.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:20%;height:60%;width:1px;background:var(--gray-100)}
+.stat-num{font-family:var(--font-display);font-size:2.75rem;font-weight:900;color:var(--navy);letter-spacing:-.03em;line-height:1}
+.stat-num .counter-suffix{color:var(--blue)}
+.stat-label{font-size:.85rem;color:var(--text-muted);margin-top:8px}
+
+/* ═══════════════════ CTA SECTION ═══════════════════ */
+.cta-section{padding:100px 0;background:var(--off-white)}
+.cta-box{text-align:center;background:linear-gradient(135deg,var(--navy),#132D4F);border-radius:var(--radius-xl);padding:64px 40px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.2),transparent 70%);pointer-events:none}
+.cta-box::after{content:'';position:absolute;bottom:-30%;left:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(14,165,233,.15),transparent 70%);pointer-events:none}
+.cta-box .section-title{color:var(--white);margin-bottom:16px;position:relative;z-index:2}
+.cta-box .section-sub{color:rgba(255,255,255,.6);margin:0 auto 36px;position:relative;z-index:2}
+.cta-actions{display:flex;gap:14px;justify-content:center;position:relative;z-index:2}
+.btn-white{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:600;color:var(--navy);background:var(--white);transition:all .3s;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.15)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:.95rem;font-weight:600;color:var(--white);background:transparent;border:1.5px solid rgba(255,255,255,.25);transition:all .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+
+/* ═══════════════════ FOOTER ═══════════════════ */
+.footer{padding:64px 0 32px;background:var(--navy);color:rgba(255,255,255,.6)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:40px;margin-bottom:48px}
+.footer-brand .nav-logo{margin-bottom:16px}
+.footer-brand .nav-logo{color:var(--white)}
+.footer-brand p{font-size:.85rem;line-height:1.6;max-width:280px}
+.footer-col h4{font-family:var(--font-display);font-size:.8rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{font-size:.85rem;color:rgba(255,255,255,.5);transition:color .2s}
+.footer-col ul a:hover{color:var(--teal-light)}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:.82rem}
+.footer-contact-item .fci-icon{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s}
+.footer-social a:hover{background:var(--blue);color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem}
+.footer-bottom-links{display:flex;gap:24px}
+.footer-bottom-links a{transition:color .2s}
+.footer-bottom-links a:hover{color:var(--teal-light)}
+
+/* ═══════════════════ SCROLL ANIMATIONS ═══════════════════ */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ═══════════════════ RESPONSIVE ═══════════════════ */
+@media(max-width:1024px){
+  .hero .container{grid-template-columns:1fr;gap:48px}
+  .hero h1{font-size:2.75rem}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .core-hr .container,.onboarding .container{grid-template-columns:1fr;gap:48px}
+  .core-content{order:-1}
+  .why-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(3)::before{display:none}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .mobile-layout{grid-template-columns:1fr;gap:40px;justify-items:center}
+  .mobile-feat,.mobile-feat.right{text-align:center;align-items:center}
+  .phone-mock{order:-1}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mobile-toggle{display:flex}
+  .hero{padding:120px 0 60px}
+  .hero h1{font-size:2.25rem}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .hero-stats{flex-direction:column;gap:16px}
+  .features-grid{grid-template-columns:1fr}
+  .section-title{font-size:2rem}
+  .stats-grid{grid-template-columns:1fr}
+  .stat-item+.stat-item::before{display:none}
+  .cta-box{padding:48px 24px}
+  .cta-actions{flex-direction:column;align-items:center}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+  .dash-float-card{display:none}
+  .core-profile{display:none}
+  .ob-float{display:none}
+}
+@media(max-width:480px){
+  .hero h1{font-size:1.8rem}
+  .dash-steps{gap:4px}
+  .dash-step-label{font-size:.5rem}
+  .dash-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon"></div>
+      Titan<span>Core</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Solutions</a>
+        <div class="dropdown-menu">
+          <a href="#features"><div class="dm-icon">&#x1F465;</div>Employee Management</a>
+          <a href="#features"><div class="dm-icon">&#x1F4B0;</div>Payroll & Settlement</a>
+          <a href="#features"><div class="dm-icon">&#x1F4C5;</div>Leave & Attendance</a>
+          <a href="#features"><div class="dm-icon">&#x1F4CA;</div>Performance</a>
+          <a href="#features"><div class="dm-icon">&#x2699;</div>Workflow Management</a>
+        </div>
+      </li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-login">Login</button>
+      <button class="btn-cta">Get Started</button>
+    </div>
+    <div class="mobile-toggle" onclick="this.classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Now available in <span>UAE & GCC</span>
+      </div>
+      <h1>HR Simplified.<br><span class="accent">People Empowered.</span></h1>
+      <p class="hero-sub">Transform your HR operations with an intelligent, all-in-one platform built for modern teams. From hiring to retiring, TitanCore handles every touchpoint.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">Request a Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#features" class="btn-secondary">Explore Solutions</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">250+</div>
+          <div class="hero-stat-label">Companies Trust Us</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">50K+</div>
+          <div class="hero-stat-label">Employees Managed</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">99.9%</div>
+          <div class="hero-stat-label">Platform Uptime</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="dash-mock">
+        <div class="dash-header">
+          <div class="dash-header-left">
+            <div class="dash-logo-mini"></div>
+            <div class="dash-title">PAYROLL MODULE <span>Jul 2026</span></div>
+          </div>
+          <div class="dash-header-right">
+            <span class="dash-time">&#x1F553; 02:45 PM</span>
+            <span>&#x1F464; 8 Staff</span>
+          </div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-payroll-bar">
+            <div class="dp-left">
+              <div class="dp-icon">&#x1F4B5;</div>
+              <div class="dp-text">
+                <div class="dp-label">Process Payroll</div>
+                <div class="dp-count">8 pending approvals</div>
+              </div>
+            </div>
+            <div class="dp-btn">&#x21BB; Run Payroll</div>
+          </div>
+          <div class="dash-steps">
+            <div class="dash-step done">
+              <div class="dash-step-circle">&#x2713;</div>
+              <div class="dash-step-label">Employee Request</div>
+            </div>
+            <div class="dash-step done">
+              <div class="dash-step-circle">&#x2713;</div>
+              <div class="dash-step-label">Auto Validation</div>
+            </div>
+            <div class="dash-step active">
+              <div class="dash-step-circle">3</div>
+              <div class="dash-step-label">Manager Approval</div>
+            </div>
+            <div class="dash-step">
+              <div class="dash-step-circle">4</div>
+              <div class="dash-step-label">Processing</div>
+            </div>
+            <div class="dash-step">
+              <div class="dash-step-circle">5</div>
+              <div class="dash-step-label">Dispatch</div>
+            </div>
+          </div>
+          <div class="dash-grid">
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <div class="dash-card-title">Active Updates</div>
+                <div class="dash-live">Live</div>
+              </div>
+              <div class="dash-emp">
+                <div class="dash-avatar" style="background:linear-gradient(135deg,#6366F1,#8B5CF6)">KA</div>
+                <div class="dash-emp-info">
+                  <div class="dash-emp-name">Khalid Al Rashid</div>
+                  <div class="dash-emp-role">Payroll Approval</div>
+                </div>
+                <div class="dash-emp-step">Step 3</div>
+              </div>
+              <div class="dash-emp">
+                <div class="dash-avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">SM</div>
+                <div class="dash-emp-info">
+                  <div class="dash-emp-name">Sara Mahmoud</div>
+                  <div class="dash-emp-role">Leave Request</div>
+                </div>
+                <div class="dash-emp-step">Step 2</div>
+              </div>
+              <div class="dash-emp">
+                <div class="dash-avatar" style="background:linear-gradient(135deg,#10B981,#06B6D4)">RP</div>
+                <div class="dash-emp-info">
+                  <div class="dash-emp-name">Rahul Patel</div>
+                  <div class="dash-emp-role">Final Settlement</div>
+                </div>
+                <div class="dash-emp-step">Step 5</div>
+              </div>
+            </div>
+            <div>
+              <div class="dash-card dash-stat-card" style="margin-bottom:12px">
+                <div class="dash-card-title" style="margin-bottom:8px">Monthly Volume</div>
+                <div class="ds-value">184</div>
+                <div class="ds-change">&#x2197; +18% vs last month</div>
+              </div>
+              <div class="dash-card dash-stat-card dash-total">
+                <div class="dash-card-title" style="margin-bottom:8px;color:rgba(255,255,255,.5)">Total Approved</div>
+                <div class="ds-value">AED 96,450</div>
+                <div class="ds-change">This cycle</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-float-card top">
+        <div class="dfc-label">Attendance Today</div>
+        <div class="dfc-value">94.2%</div>
+        <div class="dfc-bar">
+          <span style="background:var(--blue);width:42px"></span>
+          <span style="background:var(--teal);width:28px"></span>
+          <span style="background:var(--gray-200);width:8px"></span>
+        </div>
+      </div>
+      <div class="dash-float-card bottom">
+        <div class="dfc-label">Pending Requests</div>
+        <div class="dfc-value">12</div>
+        <div style="font-size:.6rem;color:var(--text-muted);margin-top:4px">Leave & Claims</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TRUSTED BY ═══════════════════ -->
+<section class="trusted reveal">
+  <div class="container">
+    <div class="trusted-label">Trusted by Industry Leaders</div>
+    <div class="trusted-logos">
+      <div class="trusted-logo"><div class="tl-icon" style="background:#EEF2FF;color:#6366F1">A</div><div class="tl-name">Apex Holdings</div></div>
+      <div class="trusted-logo"><div class="tl-icon" style="background:#FEF3C7;color:#F59E0B">N</div><div class="tl-name">Nova Energy</div></div>
+      <div class="trusted-logo"><div class="tl-icon" style="background:#ECFDF5;color:#10B981">S</div><div class="tl-name">Siraj Finance</div></div>
+      <div class="trusted-logo"><div class="tl-icon" style="background:#FEE2E2;color:#EF4444">P</div><div class="tl-name">Prime Group</div></div>
+      <div class="trusted-logo"><div class="tl-icon" style="background:#E0F2FE;color:#0EA5E9">G</div><div class="tl-name">Gulf Ventures</div></div>
+      <div class="trusted-logo"><div class="tl-icon" style="background:#F3E8FF;color:#8B5CF6">E</div><div class="tl-name">e-Infra</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FEATURES ═══════════════════ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="features-header reveal">
+      <div class="section-label">&#x2726; Modules</div>
+      <h2 class="section-title">Everything Your HR<br>Team Needs</h2>
+      <p class="section-sub">A comprehensive suite of modules designed to automate, streamline, and elevate every aspect of human resource management.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(37,99,235,.06)">&#x1F465;</div>
+        <h3>Employee Management</h3>
+        <p>Centralized profiles, role history, document vault, and org charts in one clean interface.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon" style="background:rgba(16,185,129,.06)">&#x1F4B0;</div>
+        <h3>Payroll & Settlement</h3>
+        <p>Automated WPS-compliant payroll processing with final settlement calculations and tax handling.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon" style="background:rgba(245,158,11,.06)">&#x1F4C5;</div>
+        <h3>Leave & Attendance</h3>
+        <p>Biometric integration, geo-fencing, automatic accruals, and leave balance management.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon" style="background:rgba(139,92,246,.06)">&#x1F4CA;</div>
+        <h3>Performance Management</h3>
+        <p>KPI tracking, 360-degree reviews, goal setting, and appraisal cycles with rating scales.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon" style="background:rgba(236,72,153,.06)">&#x1F4E6;</div>
+        <h3>Asset Management</h3>
+        <p>Track company assets from laptops to vehicles. Assignment history, depreciation, and returns.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon" style="background:rgba(14,165,233,.06)">&#x2699;</div>
+        <h3>Task & Workflow</h3>
+        <p>Custom approval flows, automated task routing, escalations, and SLA tracking.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon" style="background:rgba(244,63,94,.06)">&#x1F504;</div>
+        <h3>Shift Management</h3>
+        <p>Drag-and-drop shift planning, rotation schedules, overtime rules, and swap requests.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon" style="background:rgba(6,182,212,.06)">&#x1F4F1;</div>
+        <h3>Employee Self-Service</h3>
+        <p>Mobile-first portal for payslips, leave requests, document access, and profile updates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CORE HR ═══════════════════ -->
+<section class="core-hr" id="core">
+  <div class="container">
+    <div class="core-mock reveal">
+      <div class="core-panel">
+        <div class="core-panel-nav">
+          <div class="cpn-item active"><div class="cpn-icon">&#x1F4C5;</div>Leave</div>
+          <div class="cpn-item"><div class="cpn-icon">&#x1F4E6;</div>Assets</div>
+          <div class="cpn-item"><div class="cpn-icon">&#x1F465;</div>People</div>
+          <div class="cpn-item"><div class="cpn-icon">&#x1F4B0;</div>Payroll</div>
+          <div class="cpn-item"><div class="cpn-icon">&#x2B50;</div>ESS</div>
+        </div>
+        <div class="core-chart">
+          <div class="chart-header">
+            <div class="chart-title">Staff Turnover Analysis</div>
+            <div class="chart-legend"><span class="cl-hire">New Hires</span><span class="cl-exit">Exits</span></div>
+          </div>
+          <svg class="chart-svg" viewBox="0 0 400 120" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2563EB" stop-opacity=".15"/><stop offset="100%" stop-color="#2563EB" stop-opacity="0"/></linearGradient>
+              <linearGradient id="gTeal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0EA5E9" stop-opacity=".1"/><stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/></linearGradient>
+            </defs>
+            <path d="M0,80 C40,70 80,40 120,50 C160,60 200,30 240,35 C280,40 320,20 360,25 L400,28 L400,120 L0,120Z" fill="url(#gBlue)"/>
+            <path d="M0,80 C40,70 80,40 120,50 C160,60 200,30 240,35 C280,40 320,20 360,25 L400,28" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M0,95 C40,90 80,85 120,88 C160,92 200,75 240,80 C280,78 320,65 360,70 L400,68 L400,120 L0,120Z" fill="url(#gTeal)"/>
+            <path d="M0,95 C40,90 80,85 120,88 C160,92 200,75 240,80 C280,78 320,65 360,70 L400,68" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-dasharray="6,4"/>
+            <text x="20" y="115" fill="#94A3B8" font-size="9" font-family="Plus Jakarta Sans">Jan</text>
+            <text x="90" y="115" fill="#94A3B8" font-size="9" font-family="Plus Jakarta Sans">Mar</text>
+            <text x="160" y="115" fill="#94A3B8" font-size="9" font-family="Plus Jakarta Sans">May</text>
+            <text x="230" y="115" fill="#94A3B8" font-size="9" font-family="Plus Jakarta Sans">Jul</text>
+            <text x="300" y="115" fill="#94A3B8" font-size="9" font-family="Plus Jakarta Sans">Sep</text>
+            <text x="370" y="115" fill="#94A3B8" font-size="9" font-family="Plus Jakarta Sans">Nov</text>
+          </svg>
+        </div>
+      </div>
+      <div class="core-profile">
+        <div class="cp-avatar">FA</div>
+        <div class="cp-name">Fatima Al Zahra</div>
+        <div class="cp-role">Senior HR Manager</div>
+        <div class="cp-status">Active</div>
+      </div>
+    </div>
+    <div class="core-content reveal">
+      <div class="section-label">&#x2726; Core Platform</div>
+      <h2 class="section-title">Core HR</h2>
+      <p class="core-desc">From onboarding to offboarding, manage the entire employee lifecycle without the administrative headache. Built for compliance, designed for simplicity.</p>
+      <div class="core-features">
+        <div class="core-feat">
+          <div class="cf-icon">&#x1F4CB;</div>
+          <div class="cf-text"><h4>Complete Employee Profiles</h4><p>360-degree view with documents, history, and compliance tracking.</p></div>
+        </div>
+        <div class="core-feat">
+          <div class="cf-icon">&#x1F504;</div>
+          <div class="cf-text"><h4>Automated Workflows</h4><p>Custom approval chains for every HR process, zero manual follow-up.</p></div>
+        </div>
+        <div class="core-feat">
+          <div class="cf-icon">&#x1F4CA;</div>
+          <div class="cf-text"><h4>Real-Time Analytics</h4><p>Headcount, attrition, diversity, and cost analytics at your fingertips.</p></div>
+        </div>
+      </div>
+      <a href="#" class="btn-learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ONBOARDING ═══════════════════ -->
+<section class="onboarding">
+  <div class="container">
+    <div class="onboard-content reveal">
+      <div class="section-label">&#x2726; Onboarding</div>
+      <h2 class="section-title">Seamless<br>Onboarding</h2>
+      <p class="core-desc">Turn chaotic first days into seamless experiences. Automated checklists ensure nothing falls through the cracks from offer letter to first productive day.</p>
+      <div class="core-features">
+        <div class="core-feat">
+          <div class="cf-icon">&#x1F3AF;</div>
+          <div class="cf-text"><h4>Pre-Boarding & On-Boarding Stages</h4><p>Track new hires from offer acceptance through to their first working day.</p></div>
+        </div>
+        <div class="core-feat">
+          <div class="cf-icon">&#x2699;</div>
+          <div class="cf-text"><h4>Task-Based Workflow</h4><p>Auto-assign tasks to HR, IT, and managers with clear status tracking.</p></div>
+        </div>
+        <div class="core-feat">
+          <div class="cf-icon">&#x1F4E5;</div>
+          <div class="cf-text"><h4>Bulk Import & Role-Based Views</h4><p>Import multiple new hires and switch between admin, desktop, and mobile views.</p></div>
+        </div>
+      </div>
+      <a href="#" class="btn-learn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="onboard-mock reveal reveal-delay-2">
+      <div class="onboard-panel">
+        <div class="ob-header">
+          <div class="ob-header-top">
+            <div class="ob-title">Onboarding Checklist</div>
+            <div class="ob-badge">In Progress</div>
+          </div>
+          <div class="ob-person">
+            <div class="ob-person-avatar">NA</div>
+            <div>
+              <div class="ob-person-name">Nour Al Ameri</div>
+              <div class="ob-person-role">Operations Analyst</div>
+            </div>
+          </div>
+          <div class="ob-progress"><div class="ob-progress-fill"></div></div>
+          <div class="ob-progress-meta"><span>65% Completed</span><span>2 Days Remaining</span></div>
+        </div>
+        <div class="ob-tasks">
+          <div class="ob-task">
+            <div class="ob-task-icon completed">&#x2713;</div>
+            <div class="ob-task-info"><div class="ob-task-name">Offer Letter Signed</div><div class="ob-task-assignee">Assignee: Candidate</div></div>
+            <div class="ob-task-meta"><div class="ob-task-status completed">Completed</div><div class="ob-task-date">Jun 28, 2026</div></div>
+          </div>
+          <div class="ob-task">
+            <div class="ob-task-icon completed">&#x2713;</div>
+            <div class="ob-task-info"><div class="ob-task-name">IT Equipment Setup</div><div class="ob-task-assignee">Assignee: IT Dept</div></div>
+            <div class="ob-task-meta"><div class="ob-task-status completed">Completed</div><div class="ob-task-date">Jun 30, 2026</div></div>
+          </div>
+          <div class="ob-task">
+            <div class="ob-task-icon assigned">&#x25B6;</div>
+            <div class="ob-task-info"><div class="ob-task-name">Visa/PRO Documentation</div><div class="ob-task-assignee">Assignee: HR Manager</div></div>
+            <div class="ob-task-meta"><div class="ob-task-status assigned">In Progress</div><div class="ob-task-date">Due Jul 2, 2026</div></div>
+          </div>
+          <div class="ob-task">
+            <div class="ob-task-icon pending">&#x25CF;</div>
+            <div class="ob-task-info"><div class="ob-task-name">Orientation Schedule</div><div class="ob-task-assignee">Assignee: Line Manager</div></div>
+            <div class="ob-task-meta"><div class="ob-task-status pending">Pending</div><div class="ob-task-date">Due Jul 3, 2026</div></div>
+          </div>
+          <div class="ob-task">
+            <div class="ob-task-icon draft">&#x25CB;</div>
+            <div class="ob-task-info"><div class="ob-task-name">Training Enrollment</div><div class="ob-task-assignee">Assignee: L&D Team</div></div>
+            <div class="ob-task-meta"><div class="ob-task-status draft">Draft</div><div class="ob-task-date">Jul 5, 2026</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="ob-float">
+        <div class="ob-float-title">Team Status</div>
+        <div class="ob-float-item"><span>Present</span><strong style="color:#10B981">42/45</strong></div>
+        <div class="ob-float-item"><span>On Leave</span><strong style="color:#F59E0B">2</strong></div>
+        <div class="ob-float-item"><span>Remote</span><strong style="color:var(--blue)">1</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MOBILE ═══════════════════ -->
+<section class="mobile">
+  <div class="container">
+    <div class="mobile-header reveal">
+      <div class="section-label">&#x1F4F1; Mobile</div>
+      <h2 class="section-title">Mobile & Self-Service Portal</h2>
+      <p class="section-sub">Everything your employees need, right in their pocket. Clock in, request leave, view payslips, and stay connected from anywhere.</p>
+    </div>
+    <div class="mobile-layout">
+      <div class="mobile-feat reveal">
+        <div class="mf-icon" style="background:rgba(37,99,235,.06)">&#x1F91D;</div>
+        <div class="mf-title">Biometric Attendance</div>
+        <div class="mf-desc">Secure clock-in with face recognition. Works on mobile app and office kiosk devices.</div>
+        <div class="app-buttons">
+          <div class="app-btn"><span class="ab-icon">&#xF8FF;</span> iOS</div>
+          <div class="app-btn"><span class="ab-icon">&#x25B6;</span> Android</div>
+        </div>
+      </div>
+      <div class="phone-mock reveal">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="ps-header">
+            <div class="ps-greeting">Welcome back,</div>
+            <div class="ps-name">Ahmed</div>
+          </div>
+          <div class="ps-cards">
+            <div class="ps-card">
+              <div class="ps-card-icon">&#x23F0;</div>
+              <div class="ps-card-val">8.5h</div>
+              <div class="ps-card-label">Avg Hours</div>
+            </div>
+            <div class="ps-card">
+              <div class="ps-card-icon">&#x1F334;</div>
+              <div class="ps-card-val">14</div>
+              <div class="ps-card-label">Leave Balance</div>
+            </div>
+          </div>
+          <div class="ps-shift">
+            <div class="ps-shift-label">Today's Shift</div>
+            <div class="ps-shift-time">09:00 AM - 06:00 PM</div>
+          </div>
+          <div class="ps-scan">
+            <div class="ps-scan-icon">&#x1F91D;</div>
+            <div class="ps-scan-text">Tap to Clock In</div>
+          </div>
+          <div class="ps-nav">
+            <span class="active">&#x2302;</span>
+            <span>&#x1F4CB;</span>
+            <span>&#x1F4C5;</span>
+            <span>&#x2699;</span>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-feat right reveal">
+        <div class="mf-icon" style="background:rgba(14,165,233,.06)">&#x1F4F2;</div>
+        <div class="mf-title">Self-Service Hub</div>
+        <div class="mf-desc">One-stop access for payslips, leave balances, schedules, documents, and requests.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WHY ═══════════════════ -->
+<section class="why" id="about">
+  <div class="container">
+    <div class="why-header reveal">
+      <div class="section-label">&#x2726; Why Us</div>
+      <h2 class="section-title">Why TitanCore?</h2>
+      <p class="section-sub">Built by HR professionals who understand the challenges of managing people in fast-growing organizations across the GCC.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <h3>Cloud-Native Architecture</h3>
+        <p>Built from the ground up for the cloud. No legacy baggage. Lightning-fast performance, automatic updates, and enterprise-grade security with SOC 2 compliance.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-num">02</div>
+        <h3>Fully Customizable</h3>
+        <p>Every workflow, form, and report can be tailored to your organization. No two companies are alike, and your HR platform shouldn't be either.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-num">03</div>
+        <h3>UAE & GCC Focused</h3>
+        <p>WPS compliance, gratuity calculations, visa tracking, and labor law alignment built natively. Not retrofitted, purpose-built for the region.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STATS ═══════════════════ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="counter" data-target="5000">0</span><span class="counter-suffix">+</span></div>
+        <div class="stat-label">Active Users</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num"><span class="counter" data-target="200">0</span><span class="counter-suffix">+</span></div>
+        <div class="stat-label">Companies</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num">99.9<span class="counter-suffix">%</span></div>
+        <div class="stat-label">Platform Uptime</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Support Available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2 class="section-title">Ready to Transform<br>Your HR?</h2>
+      <p class="section-sub">Join hundreds of companies across the GCC who trust TitanCore to power their people operations.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-white">Get Started Free <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#" class="btn-ghost">Book a Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon"></div>
+          Titan<span>Core</span>
+        </a>
+        <p>Next-generation HR platform built for modern teams across the UAE and GCC region.</p>
+        <div class="footer-social">
+          <a href="#">in</a>
+          <a href="#">&#x1D54F;</a>
+          <a href="#">f</a>
+          <a href="#">&#x25B6;</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#">Core HR</a></li>
+          <li><a href="#">Payroll</a></li>
+          <li><a href="#">Attendance</a></li>
+          <li><a href="#">Performance</a></li>
+          <li><a href="#">Self-Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <div class="footer-contact-item">
+          <div class="fci-icon">&#x1F4CD;</div>
+          <div>Dubai, United Arab Emirates</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="fci-icon">&#x1F4DE;</div>
+          <div>+971 04 XXX XXXX</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="fci-icon">&#x2709;</div>
+          <div>info@titancore.ae</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 TitanCore Edge Technologies. All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 2000;
+      const start = performance.now();
+      const animate = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString();
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
